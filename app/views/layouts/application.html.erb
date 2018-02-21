@@ -10,11 +10,13 @@
 
   <body>
     <%= render 'layouts/navbar' %>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
 
     <%= yield :cover %>
 
     <div class="container">
-      <%= render 'layouts/flash_messages' %>
 
       <%= yield %>
     </div>
