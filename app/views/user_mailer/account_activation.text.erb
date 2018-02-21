@@ -1,0 +1,10 @@
+
+<%= @user.name %>様
+　Book-Itemです。
+
+
+ご登録ありがとうございます。
+ご本人様確認のため、下記URLへ「24時間以内」にアクセスし
+アカウントの本登録を完了させて下さい。
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

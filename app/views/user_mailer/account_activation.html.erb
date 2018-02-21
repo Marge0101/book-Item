@@ -1,0 +1,11 @@
+<h4>Book-Itemです。</h4>
+
+<p><%= @user.name %>様</p>
+
+<p>ご登録ありがとうございます。</p>
+<p>ご本人様確認のため、下記URLへ「24時間以内」にアクセスし
+アカウントの本登録を完了させて下さい。</p>
+
+<p>
+<%= link_to "本登録をする", edit_account_activation_url(@user.activation_token,
+                                                    email: @user.email) %></p>

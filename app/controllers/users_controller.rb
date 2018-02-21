@@ -18,10 +18,16 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      log_in @user
-      flash[:success] = 'ユーザを登録しました。'
-      redirect_to @user
-    else
+      @user.send_activation_email
+      #UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "登録頂いたアドレスに本登録メールを送信しました。ご確認ください。"
+      redirect_to root_url
+      
+      #Basic 登録
+      #log_in @user
+      #flash[:success] = 'ユーザを登録しました。'
+      #redirect_to @user
+     else
       flash.now[:danger] = 'ユーザの登録に失敗しました。'
       render :new
     end
