@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
       log_in user
       redirect_back_or user
       #flash[:success] = 'ログインに成功しました。'
-      redirect_to @user
     else
       message  = "アカウントが有効ではありません。 "
       message += "メールをご確認の上、本登録をお願い致します。"
