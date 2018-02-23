@@ -19,4 +19,10 @@ class ItemsController < ApplicationController
       end
     end
  end
+ 
+ def show
+    @item = Item.find(params[:id])
+    @want_users = @item.want_users
+ end
+ 
 end
