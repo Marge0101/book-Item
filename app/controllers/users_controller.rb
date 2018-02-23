@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :require_user_logged_in, only: [:edit, :update,:show]
   before_action :correct_user,   only: [:edit, :update]
   
   def index
@@ -58,11 +58,11 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
   
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "ログインしてください"
-      redirect_to login_url
-    end
-  end
+  #def logged_in_user
+   # unless logged_in?
+    #  store_location
+     # flash[:danger] = "ログインしてください"
+      #redirect_to login_url
+    #end
+  #end
 end
