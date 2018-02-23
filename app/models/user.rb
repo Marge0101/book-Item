@@ -17,6 +17,9 @@ class User < ApplicationRecord
   has_many :wants
   has_many :want_items, through: :wants, class_name: 'Item', source: :item
   
+  has_many :recos
+  has_many :reco_items, through: :recos, class_name: 'Item', source: :item
+  
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
@@ -67,6 +70,19 @@ class User < ApplicationRecord
 
   def want?(item)
     self.want_items.include?(item)
+  end
+  
+  def reco(item)
+    self.recos.find_or_create_by(item_id: item.id)
+  end
+
+  def unreco(item)
+    reco = self.recos.find_by(item_id: item.id)
+    reco.destroy if reco
+  end
+
+  def reco?(item)
+    self.reco_items.include?(item)
   end
   
   

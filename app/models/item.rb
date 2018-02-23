@@ -9,4 +9,7 @@ class Item < ApplicationRecord
   
   has_many :wants
   has_many :want_users, through: :wants, class_name: 'User', source: :user
+  
+  has_many :recos
+  has_many :reco_users, through: :recos, class_name: 'User', source: :user
 end

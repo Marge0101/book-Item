@@ -10,10 +10,16 @@ class OwnershipsController < ApplicationController
       @item.save
     end
 
-    # Want 関係として保存
+    # Want として保存
     if params[:type] == 'Want'
       current_user.want(@item)
       flash[:success] = '購入考え中に登録しました。'
+    end
+    
+    # Reco として保存
+    if params[:type] == 'Reco'
+      current_user.reco(@item)
+      flash[:success] = 'オススメに登録しました。'
     end
 
     redirect_back(fallback_location: root_path)
@@ -25,6 +31,11 @@ class OwnershipsController < ApplicationController
     if params[:type] == 'Want'
       current_user.unwant(@item) 
       flash[:success] = '購入考え中 を解除しました。'
+    end
+    
+    if params[:type] == 'Reco'
+      current_user.unreco(@item) 
+      flash[:success] = 'オススメを解除しました。'
     end
 
     redirect_back(fallback_location: root_path)

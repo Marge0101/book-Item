@@ -1,0 +1,2 @@
+class Reco < Ownership
+end
