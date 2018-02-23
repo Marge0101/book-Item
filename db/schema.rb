@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223071502) do
+ActiveRecord::Schema.define(version: 20180223083011) do
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "code"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 20180223071502) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "ownerships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "type"
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_ownerships_on_item_id"
+    t.index ["user_id", "item_id", "type"], name: "index_ownerships_on_user_id_and_item_id_and_type", unique: true
+    t.index ["user_id"], name: "index_ownerships_on_user_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -34,4 +45,6 @@ ActiveRecord::Schema.define(version: 20180223071502) do
     t.datetime "reset_sent_at"
   end
 
+  add_foreign_key "ownerships", "items"
+  add_foreign_key "ownerships", "users"
 end

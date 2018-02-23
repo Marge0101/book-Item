@@ -11,4 +11,19 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+  
+  def read(result)
+    code = result['isbn']
+    name = result['title']
+    url = result['itemUrl']
+    image_url = result['largeImageUrl']
+
+    return {
+      code: code,
+      name: name,
+      url: url,
+      image_url: image_url,
+    }
+  end
+  
 end

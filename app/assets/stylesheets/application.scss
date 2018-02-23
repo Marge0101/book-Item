@@ -55,7 +55,7 @@ footer {
 
 /* item */
 .item .panel-body {
-  height: 70px;
+  height: 125px;
 }
 .item .panel-heading {
   height: 250px;
@@ -72,8 +72,10 @@ p.item-title {
   overflow: hidden;
 }
 
-
-
+.item .buttons form {
+  display: inline-block;
+  margin: 0 5px;
+}
 
 
 /*
