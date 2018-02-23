@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post   'login' ,        to: 'sessions#create'
   delete 'logout' ,       to: 'sessions#destroy'
   get    'rankings/want', to: 'rankings#want'
+  get    'rankings/reco', to: 'rankings#reco'
   
   resources :users
   resources :account_activations, only: [:edit]
