@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= favicon_link_tag %>
     <title>BookItem</title>
     <%= csrf_meta_tags %>
 
@@ -20,7 +21,7 @@
 
       <%= yield %>
     </div>
-
+    <%= yield :cover2 %>
     <%= render 'layouts/footer' %>
   </body>
 </html>

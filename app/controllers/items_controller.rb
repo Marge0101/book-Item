@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
       results = RakutenWebService::Books::Book.search({
         title: @keyword,
         imageFlag: 1,
-        hits: 20,
+        hits: 21,
       })
 
       results.each do |result|

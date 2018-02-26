@@ -2,12 +2,60 @@
   <div class="cover">
     <div class="cover-inner">
       <div class="cover-contents">
-        <h1>素敵な本と出会う場所</h1>
+        <h1>あなたの本心、探してみませんか？</h1>
           <% unless logged_in? %>
-            <%= link_to '本を始める', signup_path, class: 'btn btn-success btn-lg' %>
+            <%= link_to '本探しを始める', signup_path, class: 'btn btn-pink btn-lg' %>
           <% end %>
       </div>
     </div>
   </div>
 <% end %>
-<%= render 'items/items', items: @items %>
+
+<% @items.shuffle.first(6).each do |item| %>
+      <div class="item">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="box2">
+            <div class="panel-heading text-center">
+              <img src="<%= item.image_url %>" alt="" >
+            </div>
+            <div class="panel-body">
+              <% if item.persisted? %>
+                <p class="item-title"><%= link_to item.name, item %></p>
+              <% else %>
+              <p class="item-title"><%= item.name %></p>
+              <% end %>
+              <div class="buttons text-center">
+              <% if logged_in? %>
+               <%= render 'ownerships/want_button', item: item %>
+               <%= render 'ownerships/reco_button', item: item %>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+<% content_for :cover2 do %>
+  <div class="cover2">
+    <div class="cover-inner2">
+      <div class="cover-contents2">
+        <h2>お腹が空くと、自然と食べ物が目につくように、</br>
+        人間て意外と素直。</br>
+        </br>
+        今、どんな言葉があなたに響きますか？</br>
+        </br>
+      　「おしゃれ」？「生き方」？「明日は休み」？</br>
+        気になるワードを本のタイトルから</br>
+        探して、読んでみよう。</br>
+        </br>
+        </br>
+        あなたの本心はそこにあるかもしれません‥。
+        </h2>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<!--%= render 'items/items', items: @items %-->

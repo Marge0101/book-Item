@@ -1,12 +1,31 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "layouts/_users.scss";
+@import "layouts/_footer.scss";
 
 @charset "utf-8";
 
+#logo {
+  font-family: Georgia, 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  float: left;
+  margin-right: 10px;
+  font-size: 2.7em;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 5px;
+  font-weight: bold;
+  &:hover {
+    color: gray;
+    text-decoration: none;
+    font-size: 2.7em;
+  }
+}
+
 /* body */
 body {
-  background: #f2f2f2;
+  /*background: #f2f2f2;*/
+  background: WHITE;
 }
 footer {
   margin-top: 40px;
@@ -26,10 +45,11 @@ footer {
   margin-top: -20px;
   margin-bottom: 20px;
   width: 100%;
-  height: 500px;
+  height: 450px;
   background: url("/image/sample.jpg") center center no-repeat;
   background-size: cover;
 }
+
 .cover .cover-inner {
   height: 100%;
   margin: auto;
@@ -45,9 +65,31 @@ footer {
   margin: 0 0 20px 0;
   color: #fff;
   font-weight: bold;
+  font-size: 37px;
   letter-spacing: 0.15em;
+  font-family: Georgia, 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+
 }
 
+.cover2 {
+  margin-top: -20px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 400px;
+  background: url("/image/footer.jpg") center center no-repeat;
+  background-size: cover;
+}
+
+.cover2 .cover-inner2 .cover-contents2 h2 {
+  margin: 30px 70px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: 0.15em;
+  float:left;
+  font-family: Georgia, 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+
+}
 /* search */
 .search {
   margin-bottom: 20px;
@@ -55,7 +97,7 @@ footer {
 
 /* item */
 .item .panel-body {
-  height: 125px;
+  height: 120px;
 }
 .item .panel-heading {
   height: 250px;
@@ -64,20 +106,47 @@ footer {
   height: 100%;
   max-width: 100%;
 }
+
+
 p.item-title {
   
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  text-align:center;
 }
 
 .item .buttons form {
   display: inline-block;
-  margin: 0 5px;
+  margin:  5px;
 }
 
+.box2 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+    border: solid 3px #E5E0DF;/*線*/
+    border-radius: 10px;/*角*/
+}
+.box2 p {
+    margin: 0; 
+    padding: 0;
+}
 
+.btn-pink{
+  background-color: #AAA5D1;
+  font-family: Georgia, 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  color:white;
+
+  
+}
+
+footer{
+  margin-bottom: 10px;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

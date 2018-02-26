@@ -1,0 +1,24 @@
+footer {
+  margin: 5px 0px;
+  padding: 15px 0px;
+  color: #a9a9a9;
+  a {
+    color: #a9a9a9;
+    &:hover {
+      color: #808080;
+    }
+  }
+  small {
+    float: left;
+    margin-left: 55px;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+      margin-right: 55px;
+    }
+  }
+}
